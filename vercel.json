@@ -4,6 +4,10 @@
     {
       "src": "backend/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "backend/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,11 +20,16 @@
       "dest": "backend/server.js"
     },
     {
-      "handle": "filesystem"
+      "src": "/assets/(.*)",
+      "dest": "backend/public/assets/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|pdf))",
+      "dest": "backend/public/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "backend/public/index.html"
     }
   ]
 }
