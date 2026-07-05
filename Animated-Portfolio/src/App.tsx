@@ -32,7 +32,7 @@ function PortfolioMain() {
 
   // Fetch dynamic database on mount
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+    const apiBase = import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost:5000/api" : "/api");
     fetch(`${apiBase}/portfolio`)
       .then((res) => {
         if (!res.ok) throw new Error("API status check failed");
