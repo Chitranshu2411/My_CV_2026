@@ -1,0 +1,14 @@
+{
+  "name": "animated-portfolio-monolith",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix Animated-Portfolio",
+    "seed": "npm run seed --prefix backend",
+    "build:frontend": "npm run build --prefix Animated-Portfolio",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix Animated-Portfolio\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

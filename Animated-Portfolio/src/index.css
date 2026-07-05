@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg-dark: #080710;
+  --color-bg-darker: #040308;
+  --color-accent-purple: #aa3bff;
+  --color-accent-cyan: #00f2fe;
+  --color-accent-emerald: #10b981;
+  --color-glass: rgba(15, 12, 30, 0.45);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+:root {
+  color-scheme: dark;
+  --cursor-glow-inner: rgba(170, 59, 255, 0.12);
+  --cursor-glow-outer: rgba(0, 242, 254, 0.03);
+  --scrollbar-thumb: #1f1b2e;
+  --scrollbar-thumb-hover: #312e4f;
+}
+
+/* Emerald Gold Cyber Theme Overrides */
+.emerald-theme {
+  --scrollbar-thumb: #04291e;
+  --scrollbar-thumb-hover: #064e3b;
+  --cursor-glow-inner: rgba(16, 185, 129, 0.12);
+  --cursor-glow-outer: rgba(245, 158, 11, 0.03);
+
+  /* Override Tailwind V4 colors recursively */
+  --color-purple-300: #6ee7b7;
+  --color-purple-400: #34d399;
+  --color-purple-500: #10b981;
+  --color-purple-600: #059669;
+  --color-purple-700: #047857;
+  --color-purple-900: #064e3b;
+
+  --color-cyan-400: #fbbf24;
+  --color-cyan-500: #f59e0b;
+  --color-cyan-600: #d97706;
+
+  --color-pink-400: #fb7185;
+  --color-pink-500: #f43f5e;
+  --color-pink-950: #4c0519;
+
+  --color-bg-darker: #020b14;
+  --color-bg-dark: #041221;
+  
+  --color-slate-950: #020b14;
+  --color-slate-900: #041525;
+  --color-slate-800: #062238;
+  --color-slate-700: #082d4d;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-darker);
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #040308;
+}
+.emerald-theme ::-webkit-scrollbar-track {
+  background: #020b14;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  background: rgba(13, 10, 28, 0.45);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.emerald-theme .glass-panel {
+  background: rgba(2, 18, 30, 0.55);
+  border: 1px solid rgba(16, 185, 129, 0.08);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px rgba(170, 59, 255, 0.15);
+}
+.emerald-theme .glow-purple {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(0, 242, 254, 0.15);
+}
+.emerald-theme .glow-cyan {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.emerald-theme .text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #00f2fe 0%, #aa3bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.emerald-theme .text-gradient-cyan {
+  background: linear-gradient(135deg, #f59e0b 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated background grid */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(170, 59, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(170, 59, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+.emerald-theme .grid-bg {
+  background-image: 
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Grid Columns for Heatmap */
+.grid-cols-28 {
+  grid-template-columns: repeat(28, minmax(0, 1fr));
+}
